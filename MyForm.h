@@ -1,4 +1,5 @@
 #pragma once
+#include "MyDialog.h"
 
 namespace Project4 {
 
@@ -22,6 +23,7 @@ namespace Project4 {
 			//
 			//TODO: äîáàâüòå êîä êîíñòğóêòîğà
 			//
+			InputDialog = gcnew MyDialog();
 		}
 
 	protected:
@@ -63,7 +65,6 @@ namespace Project4 {
 	private: System::Windows::Forms::TextBox^ searchin;
 
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::CheckedListBox^ num;
 
 
 
@@ -72,13 +73,47 @@ namespace Project4 {
 
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nazv;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ autor;
-	private: System::Windows::Forms::DataGridViewComboBoxColumn^ type;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ time;
+
+
+
+
+
 
 
 	private: System::Windows::Forms::Button^ Vstavka;
+	private: System::Windows::Forms::Button^ Edit;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nazv;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ autor;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Janr;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ time;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -148,7 +183,7 @@ namespace Project4 {
 			this->dgv = (gcnew System::Windows::Forms::DataGridView());
 			this->nazv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->autor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->type = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->Janr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->time = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->searchtime = (gcnew System::Windows::Forms::RadioButton());
@@ -157,8 +192,8 @@ namespace Project4 {
 			this->search = (gcnew System::Windows::Forms::Button());
 			this->searchin = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->num = (gcnew System::Windows::Forms::CheckedListBox());
 			this->Vstavka = (gcnew System::Windows::Forms::Button());
+			this->Edit = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -166,6 +201,7 @@ namespace Project4 {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ôàéëToolStripMenuItem });
@@ -182,34 +218,34 @@ namespace Project4 {
 					this->ñîõğàíèòüToolStripMenuItem, this->ñîõğàíèòüÊàêToolStripMenuItem, this->âûõîäToolStripMenuItem
 			});
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(69, 30);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(69, 32);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// îòêğûòüToolStripMenuItem
 			// 
 			this->îòêğûòüToolStripMenuItem->Name = L"îòêğûòüToolStripMenuItem";
-			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(268, 32);
+			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(231, 32);
 			this->îòêğûòüToolStripMenuItem->Text = L"Îòêğûòü";
 			this->îòêğûòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îòêğûòüToolStripMenuItem_Click);
 			// 
 			// ñîõğàíèòüToolStripMenuItem
 			// 
 			this->ñîõğàíèòüToolStripMenuItem->Name = L"ñîõğàíèòüToolStripMenuItem";
-			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(268, 32);
+			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(231, 32);
 			this->ñîõğàíèòüToolStripMenuItem->Text = L"Ñîõğàíèòü";
 			this->ñîõğàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñîõğàíèòüToolStripMenuItem_Click);
 			// 
 			// ñîõğàíèòüÊàêToolStripMenuItem
 			// 
 			this->ñîõğàíèòüÊàêToolStripMenuItem->Name = L"ñîõğàíèòüÊàêToolStripMenuItem";
-			this->ñîõğàíèòüÊàêToolStripMenuItem->Size = System::Drawing::Size(268, 32);
+			this->ñîõğàíèòüÊàêToolStripMenuItem->Size = System::Drawing::Size(231, 32);
 			this->ñîõğàíèòüÊàêToolStripMenuItem->Text = L"Ñîõğàíèòü êàê";
 			this->ñîõğàíèòüÊàêToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñîõğàíèòüÊàêToolStripMenuItem_Click);
 			// 
 			// âûõîäToolStripMenuItem
 			// 
 			this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
-			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(268, 32);
+			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(231, 32);
 			this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
 			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âûõîäToolStripMenuItem_Click);
 			// 
@@ -233,7 +269,7 @@ namespace Project4 {
 			this->dgv->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgv->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->nazv, this->autor,
-					this->type, this->time
+					this->Janr, this->time
 			});
 			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
@@ -248,6 +284,7 @@ namespace Project4 {
 			this->dgv->GridColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->dgv->Location = System::Drawing::Point(0, 36);
 			this->dgv->Name = L"dgv";
+			this->dgv->ReadOnly = true;
 			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
 			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.055943F, System::Drawing::FontStyle::Regular,
@@ -270,6 +307,7 @@ namespace Project4 {
 			this->nazv->HeaderText = L"Íàçâàíèå êîìïîçèöèè";
 			this->nazv->MinimumWidth = 7;
 			this->nazv->Name = L"nazv";
+			this->nazv->ReadOnly = true;
 			this->nazv->Width = 200;
 			// 
 			// autor
@@ -277,24 +315,25 @@ namespace Project4 {
 			this->autor->HeaderText = L"Èñïîëíèòåëü";
 			this->autor->MinimumWidth = 7;
 			this->autor->Name = L"autor";
+			this->autor->ReadOnly = true;
 			this->autor->Width = 200;
 			// 
-			// type
+			// Janr
 			// 
-			this->type->HeaderText = L"Æàíğ";
-			this->type->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
-				L"Êëàññè÷åñêàÿ ìóçûêà", L"Ğîê", L"Ïîï", L"Äæàç", L"Ğıï",
-					L"Øàíñîí", L"Äà"
-			});
-			this->type->MinimumWidth = 7;
-			this->type->Name = L"type";
-			this->type->Width = 149;
+			this->Janr->HeaderText = L"Æàíğ";
+			this->Janr->MinimumWidth = 7;
+			this->Janr->Name = L"Janr";
+			this->Janr->ReadOnly = true;
+			this->Janr->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			this->Janr->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			this->Janr->Width = 149;
 			// 
 			// time
 			// 
 			this->time->HeaderText = L"Ïğîäîëæèòåëüíîñòü";
 			this->time->MinimumWidth = 7;
 			this->time->Name = L"time";
+			this->time->ReadOnly = true;
 			this->time->Width = 150;
 			// 
 			// groupBox1
@@ -345,7 +384,8 @@ namespace Project4 {
 			// 
 			// search
 			// 
-			this->search->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.Image")));
+			this->search->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.BackgroundImage")));
+			this->search->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->search->Location = System::Drawing::Point(1699, 91);
 			this->search->Name = L"search";
 			this->search->Size = System::Drawing::Size(55, 55);
@@ -374,32 +414,35 @@ namespace Project4 {
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"Ïîèñê";
 			// 
-			// num
-			// 
-			this->num->FormattingEnabled = true;
-			this->num->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"1" });
-			this->num->Location = System::Drawing::Point(1142, 147);
-			this->num->Name = L"num";
-			this->num->Size = System::Drawing::Size(76, 88);
-			this->num->TabIndex = 7;
-			// 
 			// Vstavka
 			// 
-			this->Vstavka->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Vstavka.Image")));
-			this->Vstavka->Location = System::Drawing::Point(1225, 166);
+			this->Vstavka->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Vstavka.BackgroundImage")));
+			this->Vstavka->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->Vstavka->Location = System::Drawing::Point(1148, 163);
 			this->Vstavka->Name = L"Vstavka";
 			this->Vstavka->Size = System::Drawing::Size(55, 55);
 			this->Vstavka->TabIndex = 13;
 			this->Vstavka->UseVisualStyleBackColor = true;
 			this->Vstavka->Click += gcnew System::EventHandler(this, &MyForm::Vstavka_Click);
 			// 
+			// Edit
+			// 
+			this->Edit->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Edit.BackgroundImage")));
+			this->Edit->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->Edit->Location = System::Drawing::Point(1216, 163);
+			this->Edit->Name = L"Edit";
+			this->Edit->Size = System::Drawing::Size(55, 55);
+			this->Edit->TabIndex = 14;
+			this->Edit->UseVisualStyleBackColor = true;
+			this->Edit->Click += gcnew System::EventHandler(this, &MyForm::Edit_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1761, 419);
+			this->Controls->Add(this->Edit);
 			this->Controls->Add(this->Vstavka);
-			this->Controls->Add(this->num);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->searchin);
 			this->Controls->Add(this->search);
@@ -420,6 +463,7 @@ namespace Project4 {
 		}
 #pragma endregion
 		String^ tekfile;
+		MyDialog^ InputDialog;
 
 	private: System::Void âûõîäToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
@@ -545,13 +589,13 @@ private: System::Void search_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (searchtime->Checked)
 			{
-				String^ A = Convert::ToString(searchin->Text);
+				Double A = Convert::ToDouble(searchin->Text);
 				String^ pesenki;
 
-				for (int i = 0; i < Convert::ToInt32(dgv->RowCount); i++)
+				for (int i = 0; i < Convert::ToInt32(dgv->RowCount) - 1; i++)
 				{
-					String^ B = Convert::ToString(dgv[3, i]->Value);
-					if (String::Compare(A, B)<0)
+					Double B = Convert::ToDouble(Convert::ToString(dgv[3, i]->Value));
+					if (B>=A)
 					{
 						pesenki += Convert::ToString(dgv[0, i]->Value);
 						pesenki += " ";
@@ -613,7 +657,6 @@ private: System::Void dgv_RowsAdded(System::Object^ sender, System::Windows::For
 	{
 		dgv->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
 	}
-	num->Items->Add(Convert::ToString(dgv->RowCount));
 }
 
 private: System::Void dgv_RowsRemoved(System::Object^ sender, System::Windows::Forms::DataGridViewRowsRemovedEventArgs^ e) {
@@ -621,24 +664,59 @@ private: System::Void dgv_RowsRemoved(System::Object^ sender, System::Windows::F
 	{
 		dgv->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
 	}
-	num->Items->RemoveAt(Convert::ToInt32(dgv->RowCount));
 }
 
 private: System::Void Vstavka_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (Convert::ToInt32(num->CheckedItems->Count) != 0)
+	InputDialog->setName(Convert::ToString(""));
+	InputDialog->setAvt(Convert::ToString(""));
+	InputDialog->setTime(Convert::ToString("0"));
+	InputDialog->setJanr(Convert::ToString("Êëàññè÷åñêàÿ ìóçûêà"));
+	if (dgv->SelectedRows->Count == 0)
 	{
-		for (int i = 0; i < Convert::ToInt32(dgv->RowCount); i++)
+		if (InputDialog->ShowDialog() == Windows::Forms::DialogResult::OK)
 		{
-			if (num->GetItemChecked(i))
-			{
-				dgv->Rows->Insert(i, 1);
-			}
+			int i = Convert::ToInt32(dgv->RowCount) - 1;
+			dgv->Rows->Insert(i, 1);
+			dgv[0, i]->Value = Convert::ToString(InputDialog->getName());
+			dgv[1, i]->Value = Convert::ToString(InputDialog->getAvt());
+			dgv[2, i]->Value = Convert::ToString(InputDialog->getJanr());
+			dgv[3, i]->Value = Convert::ToString(InputDialog->getTime());
 		}
 	}
 	else
 	{
-		MessageBox::Show(Convert::ToString("Íå âûáğàí íîìåğ."), "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		if (dgv->SelectedRows->Count == 1)
+		{
+			if (InputDialog->ShowDialog() == Windows::Forms::DialogResult::OK)
+			{
+				int i = Convert::ToInt32(dgv->CurrentRow->Index);
+				dgv->Rows->Insert(i, 1);
+				dgv[0, i]->Value = Convert::ToString(InputDialog->getName());
+				dgv[1, i]->Value = Convert::ToString(InputDialog->getAvt());
+				dgv[2, i]->Value = Convert::ToString(InputDialog->getJanr());
+				dgv[3, i]->Value = Convert::ToString(InputDialog->getTime());
+			}
+		}
+		else
+		{
+			MessageBox::Show("Âûäåëåíî áîëüøå îäíîé êîìïîçèöèè", "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
 	}
+	// Janr->Items[1] - âûáğàòü ıëåìåíò 1 èç DataGridView Janr 
+	//if (Convert::ToInt32(num->CheckedItems->Count) != 0)
+	//{
+	//	for (int i = 0; i < Convert::ToInt32(dgv->RowCount); i++)
+	//	{
+	//		if (num->GetItemChecked(i))
+	//		{
+	//			dgv->Rows->Insert(i, 1);
+	//		}
+	//	}
+	//}
+	//else
+	//{
+	//	MessageBox::Show(Convert::ToString("Íå âûáğàí íîìåğ."), "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	//}
 }
 private: System::Void Sort_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -647,6 +725,58 @@ private: System::Void dgv_Sorted(System::Object^ sender, System::EventArgs^ e) {
 	{
 		dgv->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
 	}
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Edit_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dgv->SelectedRows->Count == 0)
+	{
+		MessageBox::Show("Íå âûáğàíî íè îäíîé êîìïîçèöèè.", "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+	}
+	else
+	{
+		if (dgv->SelectedRows->Count == 1)
+		{
+			int i = Convert::ToInt32(dgv->CurrentRow->Index);
+			if (i == Convert::ToInt32(dgv->RowCount) - 1)
+			{
+				dgv->RowCount = Convert::ToInt32(dgv->RowCount) + 1;
+				InputDialog->setName(Convert::ToString(dgv[0, i]->Value));
+				InputDialog->setAvt(Convert::ToString(dgv[1, i]->Value));
+				InputDialog->setTime(Convert::ToString(dgv[3, i]->Value));
+				InputDialog->setJanr(Convert::ToString(dgv[2, i]->Value));
+				if (InputDialog->ShowDialog() == Windows::Forms::DialogResult::OK)
+				{
+					dgv[0, i]->Value = Convert::ToString(InputDialog->getName());
+					dgv[1, i]->Value = Convert::ToString(InputDialog->getAvt());
+					dgv[2, i]->Value = Convert::ToString(InputDialog->getJanr());
+					dgv[3, i]->Value = Convert::ToString(InputDialog->getTime());
+				}
+			}
+			else
+			{
+				InputDialog->setName(Convert::ToString(dgv[0, i]->Value));
+				InputDialog->setAvt(Convert::ToString(dgv[1, i]->Value));
+				InputDialog->setTime(Convert::ToString(dgv[3, i]->Value));
+				InputDialog->setJanr(Convert::ToString(dgv[2, i]->Value));
+				if (InputDialog->ShowDialog() == Windows::Forms::DialogResult::OK)
+				{
+					dgv[0, i]->Value = Convert::ToString(InputDialog->getName());
+					dgv[1, i]->Value = Convert::ToString(InputDialog->getAvt());
+					dgv[2, i]->Value = Convert::ToString(InputDialog->getJanr());
+					dgv[3, i]->Value = Convert::ToString(InputDialog->getTime());
+				}
+			}
+		}
+		else
+		{
+			MessageBox::Show("Âûäåëåíî áîëüøå îäíîé êîìïîçèöèè", "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
+
+}
+private: System::Void del_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
